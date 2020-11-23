@@ -2,7 +2,7 @@
   box-sizing: border-box;
   margin: 0;
   border: 0;
-  border-radius: 2em;
+  border-radius: 1em;
   padding: 0;
 }
 
@@ -20,6 +20,21 @@ p {
   font-size: 95%;
   margin-bottom: 0.5em;
 }
+a {
+  text-decoration: none;
+  text-emphasis: none;
+  color: white;
+}
+a .twitter:hover {
+  border-left: #7289da solid 0.5em;
+  padding-left: 0.5em;
+  transition: all 0.1s ease-in-out;
+}
+a .instagram:hover {
+  border-left: #7289da solid 0.5em;
+  padding-left: 0.5em;
+  transition: all 0.1s ease-in-out;
+}
 
 body {
   font-family: "Nunito", sans-serif;
@@ -29,7 +44,7 @@ body {
   margin: 0.5em;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(1, 1fr);
+  grid-template-rows: repeat(4, auto);
   min-height: 1fr;
 }
 
@@ -64,22 +79,100 @@ main {
   padding-left: 0.5em;
   border-left: 0.5em solid #7289da;
 }
+
+@media (max-width: 800px) {
+  .side {
+    padding: 1em;
+    margin: 0.5em;
+    grid-column: 1/5;
+    grid-row: 2/3;
+    background-color: #2c2f33;
+    padding-left: 0.5em;
+    border-left: 0.5em solid #7289da;
+  }
+
+  main {
+    padding: 1em;
+    margin: 0.5em;
+    grid-column: 1/5;
+    grid-row: 3/4;
+    background-color: #2c2f33;
+    padding-left: 0.5em;
+    border-left: 0.5em solid #7289da;
+  }
+}
+
 #main-products {
   padding: 1em;
   margin: 0.5em;
   grid-column: 1/3;
   grid-row: 2/3;
   background-color: #2c2f33;
+  overflow-x: scroll;
+}
+#main-social-media {
+  padding: 1em;
+  margin: 0.5em;
+  grid-column: 1/5;
+  grid-row: 2/3;
+  background-color: #2c2f33;
+  border-left: 0.5em solid #7289da;
+}
+#main-career {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 1em;
+  margin: 0.5em;
+  grid-column: 1/5;
+  grid-row: 2/3;
+  background-color: #2c2f33;
+  border-left: 0.5em solid #7289da;
 }
 
-.product-info {
+.job-item {
+  flex: 0 0 45%;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  margin-top: 1em;
+  margin-right: 1em;
+  background-color: #23272a;
+  border-left: 0.5em solid #23272a;
+  transition: all 0.15s ease-in-out;
+}
+.job-item:hover {
+  border-left: 0.5em solid #7289da;
+  box-shadow: -0.1em 0em 3em black;
+  transform: scale(1.02);
+  cursor: default;
+}
+
+.info {
   padding: 1em;
   margin: 0.5em;
   grid-column: 3/5;
   grid-row: 2/3;
   background-color: #2c2f33;
-  padding-left: 0.5em;
   border-left: 0.5em solid #7289da;
+}
+
+.twitter {
+  display: flex;
+  background-color: #23272a;
+  padding: 1em;
+  margin-top: 1em;
+}
+.twitter img {
+  margin-right: 1em;
+}
+
+.instagram {
+  display: flex;
+  background-color: #23272a;
+  padding: 1em;
+  margin-top: 1em;
+}
+.instagram img {
+  margin-right: 1em;
 }
 
 .products {
@@ -87,7 +180,7 @@ main {
 }
 .product-item:nth-child(1) {
   display: flex;
-  flex: 0 0 14em;
+  flex: 0 0 50%;
   background-color: #23272a;
   flex-direction: column;
   padding: 1em;
@@ -95,27 +188,37 @@ main {
 }
 .product-item {
   display: flex;
-  flex: 0 0 14em;
-  background-color: #23272a;
+  flex: 0 0 50%;
   flex-direction: column;
+  background-color: #23272a;
   padding: 1em;
   margin-left: -7em;
   box-shadow: -0.1em 0em 3em black;
   transition: all 0.2s ease-in-out;
 }
+.product-item .product-info img {
+  align-self: center;
+}
 .product-item:hover {
   transform: translateY(-2em);
   margin-right: 5em;
-  cursor: pointer;
   padding-left: 0.5em;
   border-left: 0.5em solid #7289da;
+  transition: all 0.2s ease-in-out;
+}
+.product-info-detail {
+  display: none;
+}
+
+.product-item:hover .product-info-detail {
+  display: block;
 }
 
 footer {
   padding: 1em;
   margin: 0.5em;
   grid-column: 1/5;
-  grid-row: 3/4;
+  grid-row: 4/5;
   background-color: #2c2f33;
   display: flex;
   justify-content: center;
@@ -182,7 +285,6 @@ a::before {
   transform: scaleX(0);
   transition: all 0.2s ease-in-out;
   border-radius: 1em;
-  transition: all 0.2s ease-in-out;
 }
 
 a:hover::before {
